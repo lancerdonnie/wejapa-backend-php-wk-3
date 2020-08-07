@@ -2,5 +2,13 @@
   background-color: red;
   color: white;
   padding: 5px 15px;
-  border-radius: 10px;
+  border-radius: 7px;
+}
+
+.label {
+  width: 150px;
+}
+
+.container {
+  margin-top: 70px;
 }

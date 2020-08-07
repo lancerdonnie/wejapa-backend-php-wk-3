@@ -21,8 +21,8 @@
 <body>
   <div class="container">
     <form action="" method="post">
-      <div class="col-md-4 mb-3">
-        <label for="firstname">First Name</label>
+      <div class="col-md-5 mb-3">
+        <label class="label" for="firstname">First Name</label>
         <input name="firstname" type="text" value="<?php echo isset($_REQUEST['firstname']) ? $_REQUEST['firstname'] : '' ?>" />
         <?php
         if (isset($_REQUEST["firstname"]) && strlen($_REQUEST["firstname"]) < 3) echo '<div class="invalid">
@@ -30,8 +30,8 @@
         </div>';
         ?>
       </div>
-      <div class="col-md-4 mb-3">
-        <label for="secondname">Second Name</label>
+      <div class="col-md-5 mb-3">
+        <label class="label" for="secondname">Second Name</label>
         <input name="secondname" type="text" value="<?php echo isset($_REQUEST['secondname']) ? $_REQUEST['secondname'] : '' ?>" />
         <?php
         if (isset($_REQUEST["secondname"]) && strlen($_REQUEST["secondname"]) < 3) echo '<div class="invalid">
@@ -39,8 +39,8 @@
         </div>';
         ?>
       </div>
-      <div class="col-md-4 mb-3">
-        <label for="email">Email</label>
+      <div class="col-md-5 mb-3">
+        <label class="label" for="email">Email</label>
         <input name="email" type="text" value="<?php echo isset($_REQUEST['email']) ? $_REQUEST['email'] : '' ?>" />
         <?php
         if (isset($_REQUEST["email"]) && !strpos($_REQUEST["email"], "@")) echo '<div class="invalid">
@@ -48,26 +48,26 @@
         </div>';
         ?>
       </div>
-      <div class="col-md-4 mb-3">
-        <label for="date">Date of Birth</label>
+      <div class="col-md-5 mb-3">
+        <label class="label" for="date">Date of Birth</label>
         <input name="date" type="date" value="<?php echo isset($_REQUEST['date']) ? $_REQUEST['date'] : '' ?>" />
         <?php
-        if (!isset($_REQUEST["date"])) echo '<div class="invalid">
+        if (isset($_REQUEST["date"]) && !$_REQUEST["date"]) echo '<div class="invalid">
          Please enter a date
         </div>';
         ?>
       </div>
-      <div class="col-md-4 mb-3">
-        <label for="color">Favourite Colour</label>
+      <div class="col-md-5 mb-3">
+        <label class="label" for="color">Favourite Colour</label>
         <input name="color" type="color" value="<?php echo isset($_REQUEST['color']) ? $_REQUEST['color'] : '' ?>" />
         <?php
-        if (!isset($_REQUEST["color"])) echo '<div class="invalid">
+        if (isset($_REQUEST["color"]) && !$_REQUEST["color"]) echo '<div class="invalid">
          Please pick a colour
         </div>';
         ?>
       </div>
-      <div class="col-md-4 mb-3">
-        <label for="gender">Gender</label>
+      <div class="col-md-5 mb-3">
+        <label class="label" for="gender">Gender</label>
         <span>Male</span>
         <input name="gender1" type="checkbox" value="1" <?php echo isset($_REQUEST['gender1']) && $_REQUEST["gender1"] === "1" ? "checked" : '' ?> />
         <span>Female</span>
@@ -97,8 +97,8 @@
         }
         ?>
       </div>
-      <div class="col-md-4 mb-3">
-        <label for="department">Department</label>
+      <div class="col-md-5 mb-3">
+        <label class="label" for="department">Department</label>
         <select name="department" value="<?php echo isset($_REQUEST['department']) ? $_REQUEST['department'] : '0' ?>">
           <option <?php echo isset($_REQUEST['department']) && $_REQUEST['department'] === "0" ? "selected" : "" ?> value="0">Select</option>
           <option <?php echo isset($_REQUEST['department']) && $_REQUEST['department'] === "1" ? "selected" : "" ?> value="1">Information Technology</option>
@@ -107,13 +107,13 @@
           <option <?php echo isset($_REQUEST['department']) && $_REQUEST['department'] === "4" ? "selected" : "" ?> value="4">Public Relations</option>
         </select>
         <?php
-        if (!isset($_REQUEST["department"]) || $_REQUEST["department"] === "0") echo '<div class="invalid">
+        if (isset($_REQUEST["department"]) && $_REQUEST["department"] === "0") echo '<div class="invalid">
          Please select your department
         </div>';
         ?>
       </div>
-      <div class="col-md-4 mb-3">
-        <label for="password">Password</label>
+      <div class="col-md-5 mb-3">
+        <label class="label" for="password">Password</label>
         <input name="password" type="text" value="<?php echo isset($_REQUEST['password']) ? $_REQUEST['password'] : '' ?>" />
         <?php
         function isValidPasword($password)
@@ -139,8 +139,8 @@
         }
         ?>
       </div>
-      <div class="col-md-4 mb-3">
-        <button type="submit">Submit</button>
+      <div class="col-md-5 mb-3">
+        <button type="submit" class="btn btn-success">Submit</button>
       </div>
       <?php //if ($_REQUEST["firstname"]) header("Location: successful.php"); 
       ?>
