@@ -11,7 +11,7 @@
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="index.css">
-  <title>Wejapa Contact</title>
+  <title>Wejapa SignUp</title>
 </head>
 
 <?php
@@ -21,7 +21,7 @@ $valid = 0;
 
 <body>
   <div class="container">
-    <h3 class="text-center mb-3 text-success font-weight-bold">Fill in your information</h3>
+    <h3 class="text-center mb-3 text-success font-weight-bold">Fill in your information to sign up</h3>
     <div class="col">
       <form action="" method="post">
         <div class="col-md-5 mb-3">
@@ -83,9 +83,9 @@ $valid = 0;
           <span>Other</span>
           <input name="gender3" type="checkbox" value="3" <?php echo isset($_REQUEST['gender3']) && $_REQUEST["gender3"] === "3" ? "checked" : '' ?> />
           <?php
-          $gen1 = $_REQUEST["gender1"] ?? null;
-          $gen2 = $_REQUEST["gender2"] ?? null;
-          $gen3 = $_REQUEST["gender3"] ?? null;
+          @$gen1 = $_REQUEST["gender1"];
+          @$gen2 = $_REQUEST["gender2"];
+          @$gen3 = $_REQUEST["gender3"];
           $temp = 0;
           $arr = array($gen1, $gen2, $gen3);
           if (isset($gen1) || isset($gen2) || isset($gen3)) {
@@ -156,7 +156,7 @@ $valid = 0;
           ?>
         </div>
         <div class="col-md-5 mb-3">
-          <button type="submit" class="btn btn-success">Submit</button>
+          <button type="submit" class="btn btn-success">Sign Up</button>
         </div>
         <?php
         if ($valid === 8) {
