@@ -47,13 +47,22 @@ for ($i = 0; $i < 10; $i++) {
         }
     }
     if ($i === 5 || $i === 6 || $i === 7) {
-        if ($gender > 0) {
-            return $returnArr[$i] = "Please choose only one gender";
-        }
-        if ($gender === 0 && $i === 7 && !$arr[$i]) {
-            return $returnArr[$i] = "Please choose your gender";
+        if ($arr[$i] === "false") {
+            $returnArr[$i] = "unset";
         } else {
             $returnArr[$i] = "true";
+            $gender++;
+        }
+        if ($i === 7) {
+            if ($gender > 1) {
+                $returnArr[$i] = "Please choose only one gender";
+            }
+            if ($gender === 1) {
+                $returnArr[$i] = "true";
+            }
+            if ($gender === 0) {
+                $returnArr[$i] = "Please choose your gender";
+            }
         }
     }
     if ($i === 8) {

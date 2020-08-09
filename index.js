@@ -1,8 +1,10 @@
 const form = document.querySelector('form');
+const invalids = document.querySelectorAll('.invalid');
 let response;
 
 form.addEventListener('submit', (e) => {
   e.preventDefault();
+  invalids.forEach((e) => (e.style.display = 'none'));
   var fd = new FormData();
   Array.from(form.elements).forEach((e, i) => {
     if (i == 10) return;
@@ -73,7 +75,6 @@ const success = () => {
 };
 
 const failure = () => {
-  const invalids = document.querySelectorAll('.invalid');
   console.log(invalids);
   console.log(response);
   const setInvalid = (i, e) => {
@@ -82,7 +83,11 @@ const failure = () => {
   };
   Object.values(response).forEach((e, i) => {
     if (e === 'true') return;
-    if (i === 5 || i === 6 || i === 7) return setInvalid(5, e);
+    if (i === 5 || i === 6) return;
+    if (i === 7) {
+      if (e === 'true') return;
+      else setInvalid(5, e);
+    }
     if (i === 8 || i === 9) return setInvalid(i - 2, e);
     setInvalid(i, e);
   });
