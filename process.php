@@ -26,15 +26,11 @@ for ($i = 0; $i < 10; $i++) {
         }
     }
     if ($i === 3) {
+        $date = date('Y-m-d');
         if (isset($arr[$i]) && !$arr[$i]) {
             $returnArr[$i] = "Please enter a date";
-        } else {
-            $returnArr[$i] = "true";
-        }
-    }
-    if ($i === 3) {
-        if (isset($arr[$i]) && !$arr[$i]) {
-            $returnArr[$i] = "Please Select your date of birth";
+        } elseif ($arr[$i] >= $date) {
+            $returnArr[$i] = "Please set a date before today";
         } else {
             $returnArr[$i] = "true";
         }

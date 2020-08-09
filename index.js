@@ -29,7 +29,10 @@ form.addEventListener('submit', (e) => {
     })
     .then((data) => {
       response = data;
-      const isValid = Object.values(data).every((e) => e === 'true');
+      const isValid = Object.values(data).every((e, i) => {
+        if (i === 5 || i === 6) return true;
+        else return e === 'true';
+      });
       if (isValid) {
         success();
       } else {
