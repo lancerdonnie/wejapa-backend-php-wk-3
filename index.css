@@ -2,11 +2,16 @@ body {
   background-color: #ffc107;
 }
 
+li {
+  list-style-type: none;
+}
+
 .invalid {
   background-color: red;
   color: white;
   padding: 5px 15px;
   border-radius: 7px;
+  display: none;
 }
 
 .label {
